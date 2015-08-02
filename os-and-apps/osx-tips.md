@@ -55,3 +55,18 @@ By default, Finder hides all system and hidden files from you. To make them visi
 $ open .
 ```
 
+#### To open a text file in TextEdit ####
+
+Sometimes you'll want to make a quick change to a text file. If you are comfortable with vi, you can just use:
+
+```bash
+$ open mytext.file
+```
+
+You can also use the default text editor (TextEdit) to edit a file from teh command line:
+
+```bash
+$ open -e mytext.file
+```
+
+
