@@ -68,5 +68,11 @@ You can also use the default text editor (TextEdit) to edit a file from teh comm
 ```bash
 $ open -e mytext.file
 ```
+#### To substitute the output of one bash command inside the command line of another ####
 
+For example, to concatenate a bunch of files that are listed in a file:
+
+```bash
+$ cat `cat infile` > outfile
+```
 
