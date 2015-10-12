@@ -40,6 +40,9 @@ text format. Here's how to make them work:
     Smith,John,Edward,10 Park Ln.,jesmith@somewhere.com
     Gonzalez,Tito,,25 Easy Street,titog@elsewhere.com
     ```
+
+-   You can put spaces between fields to make it more readable, but people don't
+    generally want to read a CSV raw, so it isn't really important to do so.
     
 <!--
 ----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
