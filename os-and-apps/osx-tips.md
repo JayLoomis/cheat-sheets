@@ -75,4 +75,8 @@ For example, to concatenate a bunch of files that are listed in a file:
 ```bash
 $ cat `cat infile` > outfile
 ```
+#### To open your current Finder location in the shell ####
 
+You can open a terminal window with a location opened as the present working directory by dragging the folder you want to open on top of the Terminal icon on the Dock.
+
+Similarly, you can drag a folder into an open Terminal window to paste its path in the command line. You can take advantage of this functionality by, for example, typing `cd ` and then dragging a folder to the terminal window.
