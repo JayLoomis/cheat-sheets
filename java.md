@@ -124,4 +124,39 @@ Java floating point values (both float and double) can be minutely imprecise.
 You can get around this and force decimal precision by using the `BigDecimal`
 class instead of the primitive. This can be important in applications where
 absolute precision is important (financials, e.g.).
-----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|----8
+
+#### Casting of primitives
+
+You can implicitly cast when widening the data type:
+
+```java
+byte byteValue1 = 42;
+int intValue1 = byteValue1;
+```
+
+You can't go the other way:
+
+```java
+int intValue2 = 42;
+byte byteBalue2 = intValue2;
+\\ Compile error!
+```
+
+You can force cast, C-style:
+
+```java
+int intValue2 = 42;
+byte byteValue2 = (byte)intValue2;
+```
+
+But when you do, the value is truncated:
+
+```java
+int intValue3 = 350;
+byte byteValue3 = (byte)intValue3;
+// byteValue3 == 94 (350 - 256)
+```
+
+
+
+<!----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|----8     -->
