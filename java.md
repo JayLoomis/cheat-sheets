@@ -157,6 +157,123 @@ byte byteValue3 = (byte)intValue3;
 // byteValue3 == 94 (350 - 256)
 ```
 
+## Control structures
+Java's control structures are very C-like, but with a few variations.
+
+### if and kin
+Just as in C:
+
+#### Simple usage
+
+```java
+if(a){
+    Thing b = new Thing();
+    b.doSomething();
+}
+```
+
+Just as with C, the Boolean statement inside the parantheses is followed by a code
+block, so if it's a single statement, the curly braces are not required (but still
+probably a good idea).
+
+#### With else
+
+```java
+if(a){
+    Thing b = new Thing();
+    b.doSomething();
+} else {
+    OtherThing c = new OtherThing();
+    c.doSomethingElse();
+}
+```
+
+#### With else if
+
+```java
+if(a){
+    Thing b = new Thing();
+    b.doSomething();
+} else if(y) {
+    OtherThing c = new OtherThing();
+    c.doSomethingElse();
+} else {
+    System.out.println("Nothing to do.");
+}
+```
+
+### switch (thank the gods)
+
+```java
+switch(month){
+    case "September":
+    case "April":
+    case "June":
+    case "November":
+        days = 30;
+        break;
+    case "February":
+        if (isLeapYear())
+            days = 29;
+        else
+            days = 28;
+        break;
+    // Of course, this only works in contexts where there is no danger of bogus
+    //  data in the month variable. A more robust implementation would list the
+    //  other months explicitly so that default could be the invalid month case.
+    default:
+        days = 31;
+        break;
+}
+```
+
+### for
+For loops are just like C:
+
+```java
+for (int i = 0; i < numThings; i++){
+    doSomething(i);
+}
+```
+
+To review, the three parts are initialization, expression, and update.
+
+-   Initialization happens once at the beginning of the statement.
+-   Expression is evaluated at the top of each iteration:
+    -   If true, the for's block runs.
+    -   If false, the block isnot run and program execution resumes after the for.
+-   The update expression (by convention it's usually i++) runs after each
+    iteration where the block runs. A couple of points:
+    1.  If the expression is true, the block always runs before the update, so an
+        update of i++ is identical to ++i.
+    2.  The update doesn't happen on the final iteration. This shouldn't matter,
+        because the update should only be changing the locally defined iterator.
+
+### Enhanced for
+
+This is specific to Java (which is to say, not inherited from C). It simplifies
+the common case of looping through the members of an iterable object or array.
+
+```java
+for (Thing t : listOfThings) {
+    t.doSomething();
+}
+```
+### while
+
+Both pre and post:
+
+```java
+while(lives > 0) {
+    game.play();
+}
+```
+
+```java
+do {
+    game.playOneRound();
+} while (stillPlaying)
+```
 
 
 <!----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|----8     -->
