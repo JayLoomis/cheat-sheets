@@ -109,14 +109,15 @@ Helper classes are defined in java.lang (e.g. `java.lang.Double`)
 
 #### Primitive data types
 
-| Type   | Helper  | Description       |
-| ------ | ------- | ----------------- |
-| byte   | Byte    | 8-bit signed int  |
-| short  | Short   | 16-bit signed int |
-| int    | Integer | 32-bit signed int |
-| long   | Long    | 64-bit signed int |
-| float  | Float   | 32-bit float      |
-| double | Double  | 64-bit float      |
+| Type   | Helper    | Description                    |
+| ------ | --------- | ------------------------------ |
+| char   | Character | 16-bit unsigned (Unicode char) |
+| byte   | Byte      | 8-bit signed int               |
+| short  | Short     | 16-bit signed int              |
+| int    | Integer   | 32-bit signed int              |
+| long   | Long      | 64-bit signed int              |
+| float  | Float     | 32-bit float                   |
+| double | Double    | 64-bit float                   |
 
 #### Floating point imprecision
 
@@ -156,6 +157,26 @@ int intValue3 = 350;
 byte byteValue3 = (byte)intValue3;
 // byteValue3 == 94 (350 - 256)
 ```
+
+### Wrapper classes
+
+Every primitive type in Java has a corresponding wrapper class (also called
+_reference types_). These are classes that encapsulate a primitive value, and
+that come with many convenience functions built in. To review:
+
+| Wrapper   | Primitive |
+| --------- | --------- |
+| Boolean   | boolean   |
+| Character | char      |
+| Byte      | byte      |
+| Short     | short     |
+| Integer   | int       |
+| Long      | long      |
+| Float     | float     |
+| Double    | double    |
+
+These are called refernce types because they are stored as references, not as
+primitive values. (That's Java-speak for pointers).
 
 ## Control structures
 Java's control structures are very C-like, but with a few variations.
@@ -275,5 +296,107 @@ do {
 } while (stillPlaying)
 ```
 
+## Common tasks and library biz
+
+### Strings
+
+Strings are objects that encapsulate an array of **char** values. Lots of default
+functionality.
+
+#### Formatting strings with concatenation
+
+The concatenation operator is powerful. The system is smart enough to implicitly 
+convert things to string when you need to. For example:
+
+```java
+int five = 5,
+    six = 6,
+    seven = 7,
+    eight = 8,
+    nine = 9,
+    ten = 10;
+    
+String allTogetherNow = five + ", " + six + ", " + seven + ", " +
+                        eight + ", " + nine + ", " + ten + " I love you!";
+                        
+System.out.println(allTogetherNow);
+```
+
+Prints out:
+
+```
+5, 6, 7, 8, 9, 10 I love you!
+```
+
+##### Important warning!!
+
+Java might get confused if you rely to carelessly on implicit conversion to strings.
+Here are some variations of the string formatting from the previous example:
+
+```java
+String allTogetherNow = five + six + seven + eight + nine + ten + " I love you!";
+```
+
+Prints:
+
+```
+45 I love you!
+```
+
+But this version:
+
+```java
+String allTogetherNow = "" + five + six + seven + eight + nine + ten + " I love you!";
+```
+
+Prints:
+```
+5678910 I love you!
+```
+
+However, if you find yourself needing to trick the compiler with empty strings,
+you should consider that there's probably a better way to do what you want.
+
+#### Formatting strings, C-style
+
+String handling is one place where Java's tendency to support an old-school
+paradigm from C while also providing a more modern approach is most apparent.
+For example, you can format your strings like C's **sprintf** by using
+**String.format**:
+
+```java
+String allTogetherNow = String.format("%d, %d, %d, %d, %d, %d I love you!", five, 
+                                      six, seven, eight, nine, ten);
+```
+
+Just as with **sprintf**, you can get much more complicated with your formatting.
+
+### Shell output
+
+Printing to stdout follows the C paradigm to some degree. Use the methods of `System.out`:
+
+##### `System.out.print`
+
+Print a string without a trailing newline.
+
+```java
+System.out.print("Hip, hip, ");
+```
+
+##### `System.out.println`
+
+Print a string with a trailing newline appended.
+
+```java
+System.out.println("Hooray!");
+```
+
+##### `System.out.format`
+
+Print a formatted string (equivalent to `printf` in C).
+
+```java
+System.out.format("Hi, %s! You have %d new messages.", name, newMessageCount);
+```
 
 <!----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|----8     -->
