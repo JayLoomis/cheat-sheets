@@ -46,7 +46,7 @@ You can add some key/value pairs at creation when using the shortcut:
 var myDict = {
   'aVal': 42,
   'anotherVal': 333,
-  'yetAnother': 'This one's a string!'
+  'yetAnother': 'This one\'s a string!'
 };
 ```
 
