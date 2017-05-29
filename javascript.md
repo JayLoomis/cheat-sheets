@@ -22,13 +22,77 @@ if (typeof someVariable == 'string'){
 }
 ```
 
+### Strings
+
+Strings are objects. When you use a literal, you're essentially creating
+a new String object. These two statements are functionally identical:
+
+```javascript
+var someString = 'This is a string.';
+
+var someOtherString = new String('This is a string.');
+```
+
+#### More about string literals
+
+##### Type of quotes
+
+You can use single or double quotes to signify a string literal. These are 
+equivalent:
+
+```javascript
+var s1 = "this is a string";
+var s2 = 'this is a string';
+```
+
+##### Escaping characters
+
+Use a backslash (`\`) in front of a character to escape it, C-style. There are
+two common cases:
+
+-   Non-visible characters, as in C: (`\n`, `\t`, etc.). 
+    _Note that many of these are of little use in many JS scripts, because
+    they have no effect on HTML rendering of strings._
+    
+-   Escaping the type of quote character used to define the string:
+    
+    ```javascript
+    var s1 = 'What's wrong with this string?';
+    var s2 = 'What\'s wrong with this string? Nothing!';
+    ```
+
+##### Dealing with long string literals
+
+You can use the backslash character break string literals across lines. JS
+continues defining the string on the next line:
+
+```javascript
+var s1 = 'String literal broken \
+          over two lines.';
+```
+
+When you're working in HTML, the extra spaces before the text of the second
+line is collapsed, so it works out fine. However, it can be confusing to have
+those extra spaces in the object. One way out is to start the new line
+unindented, but that's not very clean. Instead, it's almost always better to
+just concatenate multiple strings:
+
+```javascript
+var s2 = 'Two strings ' +
+         'concatenated.';
+```
+#### String methods
+
+<!--
+----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|----8
+-->
 ### Using a generic `Object` as a dictionary
 
 JS has no explicit type for a dictionary, but you can use a generic object.
 
 #### Creating
 
-As with many OO languages, there's a formally correct way:
+As with many object-oriented languages, there's a formally correct way:
 
 ```javascript
 var myDict = new Object();
@@ -44,8 +108,9 @@ You can add some key/value pairs at creation when using the shortcut:
 
 ```javascript
 var myDict = {
-  'aVal': 42,
-  'anotherVal': 333,
+  aVal: 42,
+  anotherVal: 333,
+  // Note that both identifiers and string literals can be used for keys.
   'yetAnother': 'This one\'s a string!'
 };
 ```
