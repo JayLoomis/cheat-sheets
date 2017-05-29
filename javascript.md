@@ -97,6 +97,47 @@ for(var key in myDict) {
 }
 ```
 
+# Miscelany
+
+This is a section to contain anything I learn that's not an obvious part of
+another section, or that would be hard to find is buried within a related topic.
+
+## Null coalescing
+
+This is a term that's new to me. Funnily enough, there isn't a null coalescing
+operator in JavaScript, so I learned about it from the JavaScript workaround.
+
+The basic idea is to define a specific operator syntax that covers a very
+common case: you assign a variable to the value that mightbe null and you want
+to assign some default value if it is.
+
+```
+a = someFunc(b);
+
+if (a == null) {
+    a = '';
+}
+```
+
+### In other languages
+
+There's a big list of other languages and their special null coalescing
+operators on [Wikipedia](https://en.wikipedia.org/wiki/Null_coalescing_operator).
+
+For example, in C#:
+
+```c#
+string pageTitle = suppliedTitle ?? "Default Title";
+```
+
+### In JavaScript
+
+Instead of a special operator as such, JS uses a special case of the logical
+OR:
+
+```javascript
+var pageTitle = (suppliedTitle || 'Default Title');
+```
 <!--
 ----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|----8
 -->
