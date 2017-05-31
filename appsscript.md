@@ -21,8 +21,46 @@ All of the Google services are in the cloud, so they're always available if you
 are connected to the Internet. There's no need to initialize or otherwise "spin
 up" a service.
 
-Services have top-level objects that you can use to access and create objects
-deeper in the model. These are typically named `_Service_App`.
+### Service top-level objects
+
+-   Initialized automatically.
+-   Use to access and create objects deeper in the model.
+-   Typically named <code><i>Service</i>App</code>. For example, the spreadsheet
+    top-level object is `SpreadsheetApp`.
+    
+### Primary container objects
+
+-   Most services have an object for their fundamental data container (document,
+    spreadsheet, calendar, contact, etc.).
+-   Generally (but not always) shares a name root with the thop-level object.
+    For example, `SpreadsheetApp` uses primary container called `Spreadsheet`.
+
+### Active objects
+One of the ways you can use Apps Script is attached to a container. For example,
+you can create a script that applies to a single spreadsheet.
+
+-   Access the instance of an app that the script is attached to by getting
+    _active_ objects. For example:
+    
+    ```javascript
+    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    ```
+-   In some cases, you can access other objects deeper in the model in the same
+    way:
+    
+    ```javascript
+    var sheet = SpreadsheetApp.getActiveSheet();
+    var range = SpreadsheetApp.getActiveRange();
+    ```
+    
+## Spreadsheets
+
+This is the model for the Spreadsheets application (called Sheets in the UI).
+
+### Model hierarchy
+
+
+
 <!--
 ----|----1----|----2----|----3----|----4----|----5----|----6----|----7----|----8
 -->
