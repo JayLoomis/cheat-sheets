@@ -59,6 +59,26 @@ This is the model for the Spreadsheets application (called Sheets in the UI).
 
 ### Model hierarchy
 
+More or less:
+
+![Diagram of the spreadsheet model hierachy](spreadsheet-object-model.jpg)
+
+### Ranges
+The basic functional unit in a spreadsheet is a range, which is a contiguous,
+rectangular collection of one or more cells in a sheet. Fun facts:
+
+-   You can get a range for any sheet you can identify, even in another
+    spreadsheet, provided you have permission to access it.
+-   The only way to get or change values in cells is through a range.
+-   You can easily get the values of a range as a multidimensional array.
+-   You can also easily set the values of a range with a multidimensional
+    array.
+-   You can specify a range in many different ways:
+    -   [A1 notation](https://msdn.microsoft.com/en-us/library/bb211395(v=office.12).aspx).
+    -   Many combinations of row and column information. See the reference for
+        all of the overloads.
+    -   It's important to note that A1 is column first, but methods that use
+        numeric values for row and column are row first.
 
 
 <!--
